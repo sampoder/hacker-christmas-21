@@ -6,9 +6,11 @@ import { ThemeProvider } from 'theme-ui'
 
 const App = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider  theme={{
+      ...theme,
+      colors: { ...theme.colors, ...theme.colors.modes.dark, modes: {} }
+    }}>
       <Meta />
-      <ColorSwitcher />
       <Component {...pageProps} />
     </ThemeProvider>
   )

@@ -1,5 +1,6 @@
 import { Button, Container, Grid, Heading, Box, Input, Flex } from 'theme-ui'
 import { useState } from 'react'
+import About from '../components/about.mdx'
 
 let colours = [
   [236, 55, 80],
@@ -39,11 +40,21 @@ export default function MyApp() {
   const [theMouseIsDown, setTheMouseIsDown] = useState(false)
   return (
     <Container as="main" variant="copy">
-      <Grid columns={2}>
-        <Flex py={4} px={4} sx={{ minHeight: '100vh', alignItems: 'center' }}>
+      <Grid columns={[1, 2]} gap={0}>
+        <Flex
+          py={4}
+          px={4}
+          sx={{
+            minHeight: ['40vh','100vh'],
+            alignItems: 'center',
+            background: `linear-gradient(311deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.95) 100%), url(https://static.straitstimes.com.sg/s3fs-public/styles/article_pictrure_780x520_/public/articles/2014/12/02/sjparagon021214e_2x.jpg?itok=YFjdLz1Q&timestamp=1435132433)`,
+            backgroundRepeat: `no-repeat`,
+            backgroundSize: `cover`,
+          }}
+        >
           <Box>
             <Heading as="h1" mb={2} sx={{ fontWeight: 800 }}>
-              <i>Hack</i> The School Christmas Tree
+              <i>Hack</i> the School Christmas Tree
             </Heading>
             <Grid
               columns={xSize}
@@ -117,7 +128,6 @@ export default function MyApp() {
                     sx={{
                       background: `rgb(${colours[x].join(',')})`,
                       opacity: x == currentColourIndex ? 1 : 0.4,
-                      height: '100%',
                       paddingBottom: '100%',
                       width: '100%',
                       borderTopLeftRadius: x == 0 ? 3 : 0,
@@ -136,6 +146,7 @@ export default function MyApp() {
                   textAlign: 'center',
                   borderRadius: 5,
                   opacity: 6 == currentColourIndex ? 1 : 0.4,
+                  fontSize: ['0.7em', '1em']
                 }}
                 onClick={() => setCurrentColourIndex(6)}
               >
@@ -156,7 +167,7 @@ export default function MyApp() {
           </Box>
         </Flex>
         <Box bg="#0c0c0c" py={4} px={4}>
-          Hi
+          <About />
         </Box>
       </Grid>
     </Container>
